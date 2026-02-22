@@ -238,45 +238,41 @@ color:#cbd5e1;
     </div>
 </div>
 
-<section>
-    <h2>Our Services</h2>
-    <div class="service-container">
-        <div class="card">
-            <h3>CIBIL Score Check</h3>
-            <p>Detailed credit report analysis and consultation.</p>
-        </div>
-        <div class="card">
-            <h3>CIBIL Improvement</h3>
-            <p>Professional strategies to improve low credit scores.</p>
-        </div>
-        <div class="card">
-            <h3>Loan Guidance</h3>
-            <p>Personal & business loan approval support.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Add this EXACTLY to your HTML -->
-
-<!-- 1. Add to <head> -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<!-- 2. Replace your contact section -->
 <section class="contact" style="background: rgba(15,32,39,0.9); padding:80px 10%;">
     <h2 style="color:#38bdf8; text-align:center;">Contact Us</h2>
     
-    <form id="contactForm" style="max-width:500px;margin:auto;">
-        <input type="text" id="name" name="name" placeholder="Your Name *" required 
+    <div style="max-width:500px;margin:auto;">
+        <input type="text" id="clientName" placeholder="Your Name *" required 
                style="width:100%;padding:12px;margin:10px 0;background:#1e293b;color:white;border:1px solid #2c5364;border-radius:8px;">
-        <input type="tel" id="phone" name="phone" placeholder="Phone Number *" required 
+        <input type="tel" id="clientPhone" placeholder="Phone Number *" required 
                style="width:100%;padding:12px;margin:10px 0;background:#1e293b;color:white;border:1px solid #2c5364;border-radius:8px;">
-        <textarea id="message" name="message" placeholder="Your Message *" required 
-                  style="width:100%;padding:12px;margin:10px 0;background:#1e293b;color:white;border:1px solid #2c5364;border-radius:8px;min-height:100px;"></textarea>
-        <button type="submit" style="width:100%;padding:15px;background:#38bdf8;color:#0f2027;border:none;border-radius:8px;font-weight:600;font-size:16px;cursor:pointer;">Send Message</button>
-    </form>
-    
-    <div id="status" style="text-align:center;margin-top:20px;color:#38bdf8;font-weight:500;"></div>
+        <textarea id="clientMessage" placeholder="Your Message *" required 
+                 style="width:100%;padding:12px;margin:10px 0;background:#1e293b;color:white;border:1px solid #2c5364;border-radius:8px;min-height:100px;"></textarea>
+        
+        <button onclick="sendToWhatsApp()" 
+                style="width:100%;padding:15px;background:#25D366;color:white;border:none;border-radius:8px;font-weight:600;font-size:16px;cursor:pointer;">
+            📱 Send Message to MS CIBIL
+        </button>
+    </div>
 </section>
+
+<script>
+function sendToWhatsApp() {
+    const name = document.getElementById('clientName').value;
+    const phone = document.getElementById('clientPhone').value;
+    const message = document.getElementById('clientMessage').value;
+    
+    if (!name || !phone || !message) {
+        alert('Please fill all fields!');
+        return;
+    }
+    
+    const whatsappNumber = '9010988860';
+    const whatsappMessage = `🆕 NEW LEAD MS CIBIL%0A%0A👤 Name: ${name}%0A📱 Phone: ${phone}%0A💬 Query: ${message}%0A%0AThank you!`;
+    
+    window.open(`https://wa.me/91${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+}
+</script>
 
 <!-- 3. Add before </body> -->
 <script type="text/javascript">
