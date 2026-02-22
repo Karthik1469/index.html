@@ -258,16 +258,60 @@ color:#cbd5e1;
 
 <section class="contact">
     <h2>Contact Us</h2>
-    <form name="contact" method="POST" data-netlify="true">
+    
+    <!-- Form -->
+    <form name="contact" method="POST" data-netlify="true" id="contactForm">
         <input type="hidden" name="form-name" value="contact">
-      
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="tel" name="phone" placeholder="Phone Number" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-      
-        <button type="submit" class="btn">Send Message</button>
-      </form>
+        <input type="text" name="name" id="name" placeholder="Your Name" required>
+        <input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
+        <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Display entered data HERE -->
+    <div id="formData" style="display:none; background:#e8f5e8; padding:20px; border-radius:10px; margin-top:20px;">
+        <h3>📋 You Entered:</h3>
+        <p><strong>Name:</strong> <span id="showName">-</span></p>
+        <p><strong>Phone:</strong> <span id="showPhone">-</span></p>
+        <p><strong>Message:</strong> <span id="showMessage">-</span></p>
+        <p><em>Sending to MS CIBIL...</em></p>
+    </div>
 </section>
+
+<script>
+// 1. Capture data as they type
+document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(field => {
+    field.addEventListener('input', function() {
+        document.getElementById('show' + this.id.charAt(0).toUpperCase() + this.id.slice(1)).textContent = this.value;
+    });
+});
+
+// 2. Handle form submit (shows data + sends to Netlify)
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Don't reload page
+    
+    // Show the data div
+    document.getElementById('formData').style.display = 'block';
+    
+    // Send to Netlify
+    const formData = new FormData(this);
+    fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+        document.getElementById('formData').innerHTML = `
+            <h3>✅ Thank You!</h3>
+            <p><strong>Name:</strong> ${document.getElementById('name').value}</p>
+            <p><strong>Phone:</strong> ${document.getElementById('phone').value}</p>
+            <p>We received your details. Reply on WhatsApp soon!</p>
+        `;
+        this.reset();
+    })
+    .catch(() => alert('Error! Check console.'));
+});
+</script>
 
 <style>
 .contact {
