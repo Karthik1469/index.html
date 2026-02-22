@@ -256,26 +256,20 @@ color:#cbd5e1;
     </div>
 </section>
 
-<section class="contact">
-    <h2>Contact Us</h2>
+<!-- Replace your entire contact section with this -->
+<section class="contact" style="background: rgba(15,32,39,0.9); padding:80px 10%;">
+    <h2 style="color:#38bdf8;">Contact Us</h2>
     
-    <!-- Form -->
-    <form name="contact" method="POST" data-netlify="true" id="contactForm">
-        <input type="hidden" name="form-name" value="contact">
-        <input type="text" name="name" id="name" placeholder="Your Name" required>
-        <input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
-        <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+    <!-- ✅ PERFECT FORM - Netlify WILL capture this -->
+    <form name="contact" method="POST" data-netlify="true" class="contact-box">
+        <input type="hidden" name="form-name" value="contact" />
+        
+        <input type="text" name="name" placeholder="Your Name *" required />
+        <input type="tel" name="phone" placeholder="Phone Number *" required />
+        <textarea name="message" placeholder="Your Message *" required></textarea>
+        
         <button type="submit">Send Message</button>
     </form>
-
-    <!-- Display entered data HERE -->
-    <div id="formData" style="display:none; background:#e8f5e8; padding:20px; border-radius:10px; margin-top:20px;">
-        <h3>📋 You Entered:</h3>
-        <p><strong>Name:</strong> <span id="showName">-</span></p>
-        <p><strong>Phone:</strong> <span id="showPhone">-</span></p>
-        <p><strong>Message:</strong> <span id="showMessage">-</span></p>
-        <p><em>Sending to MS CIBIL...</em></p>
-    </div>
 </section>
 
 <script>
