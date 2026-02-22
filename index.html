@@ -256,57 +256,50 @@ color:#cbd5e1;
     </div>
 </section>
 
-<!-- Replace your entire contact section with this -->
+<!-- Add this EXACTLY to your HTML -->
+
+<!-- 1. Add to <head> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- 2. Replace your contact section -->
 <section class="contact" style="background: rgba(15,32,39,0.9); padding:80px 10%;">
-    <h2 style="color:#38bdf8;">Contact Us</h2>
+    <h2 style="color:#38bdf8; text-align:center;">Contact Us</h2>
     
-    <!-- ✅ PERFECT FORM - Netlify WILL capture this -->
-    <form name="contact" method="POST" data-netlify="true" class="contact-box">
-        <input type="hidden" name="form-name" value="contact" />
-        
-        <input type="text" name="name" placeholder="Your Name *" required />
-        <input type="tel" name="phone" placeholder="Phone Number *" required />
-        <textarea name="message" placeholder="Your Message *" required></textarea>
-        
-        <button type="submit">Send Message</button>
+    <form id="contactForm" style="max-width:500px;margin:auto;">
+        <input type="text" id="name" name="name" placeholder="Your Name *" required 
+               style="width:100%;padding:12px;margin:10px 0;background:#1e293b;color:white;border:1px solid #2c5364;border-radius:8px;">
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number *" required 
+               style="width:100%;padding:12px;margin:10px 0;background:#1e293b;color:white;border:1px solid #2c5364;border-radius:8px;">
+        <textarea id="message" name="message" placeholder="Your Message *" required 
+                  style="width:100%;padding:12px;margin:10px 0;background:#1e293b;color:white;border:1px solid #2c5364;border-radius:8px;min-height:100px;"></textarea>
+        <button type="submit" style="width:100%;padding:15px;background:#38bdf8;color:#0f2027;border:none;border-radius:8px;font-weight:600;font-size:16px;cursor:pointer;">Send Message</button>
     </form>
+    
+    <div id="status" style="text-align:center;margin-top:20px;color:#38bdf8;font-weight:500;"></div>
 </section>
 
-<script>
-// 1. Capture data as they type
-document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(field => {
-    field.addEventListener('input', function() {
-        document.getElementById('show' + this.id.charAt(0).toUpperCase() + this.id.slice(1)).textContent = this.value;
+<!-- 3. Add before </body> -->
+<script type="text/javascript">
+    emailjs.init("REPLACE_WITH_PUBLIC_KEY"); // You'll get this from emailjs.com
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        document.getElementById('status').innerHTML = '📤 Sending to kadaganchikarthik@gmail.com...';
+        
+        emailjs.send('REPLACE_SERVICE_ID', 'REPLACE_TEMPLATE_ID', {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            message: document.getElementById('message').value,
+            to_email: 'kadaganchikarthik@gmail.com'
+        }).then(function(response) {
+            document.getElementById('status').innerHTML = '✅ SUCCESS! Check kadaganchikarthik@gmail.com';
+            document.getElementById('contactForm').reset();
+        }, function(error) {
+            document.getElementById('status').innerHTML = '❌ Error! Use WhatsApp: 9010988860';
+        });
     });
-});
-
-// 2. Handle form submit (shows data + sends to Netlify)
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Don't reload page
-    
-    // Show the data div
-    document.getElementById('formData').style.display = 'block';
-    
-    // Send to Netlify
-    const formData = new FormData(this);
-    fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-    })
-    .then(() => {
-        document.getElementById('formData').innerHTML = `
-            <h3>✅ Thank You!</h3>
-            <p><strong>Name:</strong> ${document.getElementById('name').value}</p>
-            <p><strong>Phone:</strong> ${document.getElementById('phone').value}</p>
-            <p>We received your details. Reply on WhatsApp soon!</p>
-        `;
-        this.reset();
-    })
-    .catch(() => alert('Error! Check console.'));
-});
 </script>
-
 <style>
 .contact {
     padding: 50px 20px;
