@@ -1,337 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>MS CIBIL Consultancy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MS CIBIL Consultancy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f2027;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+    h1 {
+      font-size: 40px;
+    }
 
-        body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-    color: white;
-}
-h1, h2 {
-    font-weight: 700;
-}
+    p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
 
-        /* NAVBAR */
-        nav{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:20px 10%;
-            background:white;
-            box-shadow:0 4px 10px rgba(0,0,0,0.05);
-            position:sticky;
-            top:0;
-            z-index:1000;
-        }
-
-        nav h2{
-            color:#0f2027;
-        }
-
-        nav a{
-            text-decoration:none;
-            margin-left:20px;
-            color:#333;
-            font-weight:500;
-        }
-
-        nav a:hover{
-            color:#2c5364;
-        }
-
-        /* HERO */
-        .hero{
-            height:90vh;
-            background:linear-gradient(rgba(15,32,39,0.7), rgba(44,83,100,0.7)),
-            url('https://images.unsplash.com/photo-1554224155-6726b3ff858f');
-            background-size:cover;
-            background-position:center;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            color:white;
-            padding:20px;
-        }
-
-        .hero h1{
-            font-size:45px;
-        }
-
-        .hero p{
-            margin-top:15px;
-            font-size:18px;
-        }
-
-        .btn{
-            display:inline-block;
-            margin-top:25px;
-            padding:12px 30px;
-            background:#25D366;
-            color:white;
-            border-radius:30px;
-            text-decoration:none;
-            transition:0.3s;
-        }
-
-        .btn:hover{
-            transform:scale(1.1);
-        }
-
-        /* SECTION */
-        section{
-            padding:80px 10%;
-            text-align:center;
-        }
-
-        /* SERVICES */
-        .service-container{
-            display:flex;
-            justify-content:center;
-            flex-wrap:wrap;
-            gap:30px;
-            margin-top:40px;
-        }
-
-        .card{
-background:#1e293b;
-padding:30px;
-border-radius:15px;
-width:250px;
-text-align:center;
-transition:0.3s;
-color:white;
-}
-
-.card h3{
-color:#38bdf8;
-margin-bottom:15px;
-}
-
-.card p{
-color:#cbd5e1;
-}
-
-        .card:hover{
-            transform:translateY(-10px);
-        }
-
-        /* CONTACT */
-        .contact-box{
-            max-width:500px;
-            margin:auto;
-            background:white;
-            padding:40px;
-            border-radius:15px;
-            box-shadow:0 10px 25px rgba(0,0,0,0.08);
-        }
-
-        .contact-box input,
-        .contact-box textarea{
-            width:100%;
-            padding:12px;
-            margin:10px 0;
-            border:1px solid #ddd;
-            border-radius:8px;
-        }
-
-        .contact-box button{
-            width:100%;
-            padding:12px;
-            background:#2c5364;
-            color:white;
-            border:none;
-            border-radius:8px;
-            cursor:pointer;
-            transition:0.3s;
-        }
-
-        .contact-box button:hover{
-            background:#0f2027;
-        }
-
-        /* FOOTER */
-        footer{
-            background:#0f2027;
-            color:white;
-            text-align:center;
-            padding:20px;
-        }
-
-        /* WHATSAPP FLOAT */
-        .whatsapp{
-            position:fixed;
-            bottom:20px;
-            right:20px;
-            background:#25D366;
-            color:white;
-            padding:15px;
-            border-radius:50%;
-            font-size:20px;
-            text-decoration:none;
-        }
-
-        /* MOBILE */
-        @media(max-width:768px){
-            .hero h1{
-                font-size:30px;
-            }
-
-            nav{
-                flex-direction:column;
-            }
-        }
-
-    </style>
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 25px;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+  </style>
 </head>
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/919010988860" 
-   class="whatsapp-float" 
-   target="_blank">
-   💬
-</a>
-
-<style>
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    font-size: 28px;
-    padding: 15px 18px;
-    border-radius: 50%;
-    text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: 0.3s;
-}
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-</style>
 <body>
 
-<nav>
-    <h2>MS CIBIL</h2>
-    <div>
-        <a href="#">Home</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-    </div>
-</nav>
+  <h1 id="hero-title">Boost Your CIBIL Score</h1>
+  <p id="hero-desc">Professional credit improvement & loan consulting</p>
 
-<div class="hero">
-    <div>
-        <h1>Boost Your CIBIL Score Professionally</h1>
-        <p>Trusted Credit Improvement & Loan Consulting Experts</p>
-        <a class="btn" href="https://wa.me/919010988860">Chat on WhatsApp</a>
-    </div>
-</div>
-
-<section class="contact" style="background: rgba(15,32,39,0.9); padding:80px 10%;">
-    <h2 style="color:#38bdf8; text-align:center;">Contact Us</h2>
-    
-    <div style="max-width:500px;margin:auto;">
-        <input type="text" id="clientName" placeholder="Your Name *" required 
-               style="width:100%;padding:12px;margin:10px 0;background:#1e293b;color:white;border:1px solid #2c5364;border-radius:8px;">
-        <input type="tel" id="clientPhone" placeholder="Phone Number *" required 
-               style="width:100%;padding:12px;margin:10px 0;background:#1e293b;color:white;border:1px solid #2c5364;border-radius:8px;">
-        <textarea id="clientMessage" placeholder="Your Message *" required 
-                 style="width:100%;padding:12px;margin:10px 0;background:#1e293b;color:white;border:1px solid #2c5364;border-radius:8px;min-height:100px;"></textarea>
-        
-        <button onclick="sendToWhatsApp()" 
-                style="width:100%;padding:15px;background:#25D366;color:white;border:none;border-radius:8px;font-weight:600;font-size:16px;cursor:pointer;">
-            📱 Send Message to MS CIBIL
-        </button>
-    </div>
-</section>
-
-<script>
-function sendToWhatsApp() {
-    const name = document.getElementById('clientName').value;
-    const phone = document.getElementById('clientPhone').value;
-    const message = document.getElementById('clientMessage').value;
-    
-    if (!name || !phone || !message) {
-        alert('Please fill all fields!');
-        return;
-    }
-    
-    const whatsappNumber = '9010988860';
-    const whatsappMessage = `🆕 NEW LEAD MS CIBIL%0A%0A👤 Name: ${name}%0A📱 Phone: ${phone}%0A💬 Query: ${message}%0A%0AThank you!`;
-    
-    window.open(`https://wa.me/91${whatsappNumber}?text=${whatsappMessage}`, '_blank');
-}
-</script>
-
-<!-- 3. Add before </body> -->
-<script type="text/javascript">
-    emailjs.init("REPLACE_WITH_PUBLIC_KEY"); // You'll get this from emailjs.com
-
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        document.getElementById('status').innerHTML = '📤 Sending to kadaganchikarthik@gmail.com...';
-        
-        emailjs.send('REPLACE_SERVICE_ID', 'REPLACE_TEMPLATE_ID', {
-            name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
-            message: document.getElementById('message').value,
-            to_email: 'kadaganchikarthik@gmail.com'
-        }).then(function(response) {
-            document.getElementById('status').innerHTML = '✅ SUCCESS! Check kadaganchikarthik@gmail.com';
-            document.getElementById('contactForm').reset();
-        }, function(error) {
-            document.getElementById('status').innerHTML = '❌ Error! Use WhatsApp: 9010988860';
-        });
-    });
-</script>
-<style>
-.contact {
-    padding: 50px 20px;
-    text-align: center;
-    background: #f8f9fa;
-}
-.contact h2 {
-    margin-bottom: 20px;
-}
-.contact input, .contact textarea {
-    width: 90%;
-    max-width: 400px;
-    margin: 10px auto;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    display: block;
-}
-.contact button {
-    background: #0d6efd;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-.contact button:hover {
-    background: #084298;
-}
-</style>
-
-<footer>
-    <p>© 2026 MS CIBIL Consultancy | All Rights Reserved</p>
-</footer>
-
-<a class="whatsapp" href="https://wa.me/919010988860">💬</a>
+  <a class="btn" href="/admin/">Admin Login</a>
 
 </body>
 </html>
