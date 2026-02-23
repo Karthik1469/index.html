@@ -4,3 +4,14 @@ backend:
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "index.html"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - { label: "Hero Title", name: "hero-title", widget: "string" }
+          - { label: "Hero Description", name: "hero-desc", widget: "text" }
